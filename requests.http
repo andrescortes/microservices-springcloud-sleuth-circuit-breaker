@@ -1,0 +1,72 @@
+### create a department at department-service
+POST http://localhost:8080/api/departments
+Content-Type: application/json
+
+{
+  "departmentName": "IT",
+  "departmentDescription": "Information Technology",
+  "departmentCode": "IT001"
+}
+
+### get departmentBydepartmentCode
+GET http://localhost:9191/api/departments/IT001
+Content-Type: application/json
+
+### create a employee at employee-service
+POST http://localhost:8081/api/employees
+Content-Type: application/json
+
+{
+  "firstName": "andres",
+  "lastName": "cortes",
+  "email": "andres.cortes@gmail.com",
+  "departmentCode": "IT001"
+}
+
+### get employeeById throug api-gateway
+GET http://localhost:9191/api/employees/2
+Content-Type: application/json
+
+### get organizationByCode through api-gateway
+GET http://localhost:9191/api/organizations/ABC_ORG
+Content-Type: application/json
+
+### get message from ms-deparment
+GET http://localhost:8080/message
+Content-Type: application/json
+
+### refresh properties with actuator in department-service
+POST http://localhost:8080/actuator/refresh
+Content-Type: application/json
+
+### get message from ms-employee
+GET http://localhost:8081/users/message
+Content-Type: application/json
+
+
+### refresh properties with amqp in department-service
+POST http://localhost:8080/actuator/busrefresh
+Content-Type: application/json
+
+
+### get employeeById throug api-gateway
+GET http://localhost:8081/api/employees/2
+Content-Type: application/json
+
+
+### health with actuator endpoint in ms-employee
+GET http://localhost:8081/actuator/health
+
+### create organization in organization-service
+POST http://localhost:8083/api/organizations
+Content-Type: application/json
+
+{
+  "organizationName": "ABC",
+  "organizationDescription": "ABC Organization Description",
+  "organizationCode": "ABC_ORG"
+}
+
+### get organization by organizationCode
+GET http://localhost:8083/api/organizations/ABC_ORG
+Content-Type: application/json

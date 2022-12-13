@@ -1,0 +1,17 @@
+server:
+  port: 8888
+eureka:
+  instance:
+    client:
+      serverUrl:
+        defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/andrescortes/config-server-repo.git
+          clone-on-start: true
+          default-label: main

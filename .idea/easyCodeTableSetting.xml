@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EasyCodeTableSetting">
+    <option name="tableInfoMap">
+      <map>
+        <entry key="dev.coder.departmentservice.controller.DepartmentController">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="null" />
+                    <option name="name" value="service" />
+                    <option name="type" value="dev.coder.departmentservice.service.DepartmentService" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="DepartmentController" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="department-service.main" />
+              <option name="savePackageName" value="dev.coder.departmentservice" />
+              <option name="savePath" value="./department-service/src/main/java/dev/coder/departmentservice" />
+              <option name="templateGroupName" value="Default" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="dev.coder.employeeservice.EmployeeServiceApplication">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list />
+              </option>
+              <option name="name" value="EmployeeServiceApplication" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="" />
+              <option name="savePackageName" value="" />
+              <option name="savePath" value="" />
+              <option name="templateGroupName" value="" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

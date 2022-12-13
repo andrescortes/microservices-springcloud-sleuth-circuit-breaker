@@ -1,0 +1,71 @@
+spring:
+  application:
+    name: EMPLOYEE-SERVICE
+  config:
+    import: optional:configserver:http://localhost:8888
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      probability: 1.0
+  jackson:
+    serialization:
+      indent-output: true
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/employee_db
+#    username: root
+#    password: 1003
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#    hibernate:
+#      ddl-auto: update
+#  application:
+#    name: EMPLOYEE-SERVICE
+#server:
+#  port: 8081
+#eureka:
+#  instance:
+#    client:
+#      serverUrl:
+#        defaultZone: http://localhost:8761/eureka/
+#Actuator endpoints for Circuit Breaker
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+#Circuit Breaker configuration
+resilience4j:
+  circuitbreaker:
+    instances:
+      EMPLOYEE-SERVICE:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+#Retry configuration
+  retry:
+    instances:
+      EMPLOYEE-SERVICE:
+        registerHealthIndicator: true
+        max-retry-attempts: 5
+        wait-duration: 2s
+
